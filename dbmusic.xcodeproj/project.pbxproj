@@ -19,6 +19,8 @@
 		9D8451541B47F202004F0435 /* RoundRotateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451531B47F202004F0435 /* RoundRotateView.swift */; };
 		9D8451561B481D4A004F0435 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451551B481D4A004F0435 /* ChannelListViewController.swift */; };
 		9D8451581B481FC9004F0435 /* SongChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451571B481FC9004F0435 /* SongChannelModel.swift */; };
+		9DB2F0131B48CC33001A59B5 /* LyricModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F0121B48CC32001A59B5 /* LyricModel.swift */; };
+		9DB2F0491B48F48F001A59B5 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F0481B48F48F001A59B5 /* LyricView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		9D8451531B47F202004F0435 /* RoundRotateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundRotateView.swift; sourceTree = "<group>"; };
 		9D8451551B481D4A004F0435 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		9D8451571B481FC9004F0435 /* SongChannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongChannelModel.swift; sourceTree = "<group>"; };
+		9DB2F0121B48CC32001A59B5 /* LyricModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricModel.swift; sourceTree = "<group>"; };
+		9DB2F0481B48F48F001A59B5 /* LyricView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,18 +93,15 @@
 		9D8450FA1B46B634004F0435 /* dbmusic */ = {
 			isa = PBXGroup;
 			children = (
-				9D84511D1B46CE03004F0435 /* Alamofire.swift */,
-				9D84511E1B46CE03004F0435 /* HRToast+UIView.swift */,
-				9D84511F1B46CE03004F0435 /* SwiftyJSON.swift */,
+				9DB2F0171B48CCDE001A59B5 /* tool */,
+				9DB2F0161B48CCBE001A59B5 /* controller */,
+				9DB2F0151B48CCB5001A59B5 /* view */,
+				9DB2F0141B48CC55001A59B5 /* model */,
 				9D8450FD1B46B634004F0435 /* AppDelegate.swift */,
-				9D8450FF1B46B634004F0435 /* ViewController.swift */,
 				9D8451011B46B634004F0435 /* Main.storyboard */,
-				9D8451531B47F202004F0435 /* RoundRotateView.swift */,
-				9D8451551B481D4A004F0435 /* ChannelListViewController.swift */,
 				9D8451041B46B634004F0435 /* Images.xcassets */,
 				9D8451061B46B634004F0435 /* LaunchScreen.xib */,
 				9D8450FB1B46B634004F0435 /* Supporting Files */,
-				9D8451571B481FC9004F0435 /* SongChannelModel.swift */,
 			);
 			path = dbmusic;
 			sourceTree = "<group>";
@@ -128,6 +129,43 @@
 				9D8451121B46B634004F0435 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DB2F0141B48CC55001A59B5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				9D8451571B481FC9004F0435 /* SongChannelModel.swift */,
+				9DB2F0121B48CC32001A59B5 /* LyricModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		9DB2F0151B48CCB5001A59B5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9DB2F0481B48F48F001A59B5 /* LyricView.swift */,
+				9D8451531B47F202004F0435 /* RoundRotateView.swift */,
+				9D84511E1B46CE03004F0435 /* HRToast+UIView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		9DB2F0161B48CCBE001A59B5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D8451551B481D4A004F0435 /* ChannelListViewController.swift */,
+				9D8450FF1B46B634004F0435 /* ViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		9DB2F0171B48CCDE001A59B5 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				9D84511D1B46CE03004F0435 /* Alamofire.swift */,
+				9D84511F1B46CE03004F0435 /* SwiftyJSON.swift */,
+			);
+			name = tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB2F0491B48F48F001A59B5 /* LyricView.swift in Sources */,
 				9D8451541B47F202004F0435 /* RoundRotateView.swift in Sources */,
 				9D8451211B46CE03004F0435 /* HRToast+UIView.swift in Sources */,
 				9D8451581B481FC9004F0435 /* SongChannelModel.swift in Sources */,
@@ -238,6 +277,7 @@
 				9D8451001B46B634004F0435 /* ViewController.swift in Sources */,
 				9D8451221B46CE03004F0435 /* SwiftyJSON.swift in Sources */,
 				9D8450FE1B46B634004F0435 /* AppDelegate.swift in Sources */,
+				9DB2F0131B48CC33001A59B5 /* LyricModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

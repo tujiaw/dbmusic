@@ -30,7 +30,11 @@ class SongChannelModel: NSObject {
     }
     
     func requestSong(fromChannel channel: Int, resultHandle: () -> Void) {
-        Alamofire.manager.request(Method.GET, "http://douban.fm/j/mine/playlist?type=n&channel=\(channel)&from=mainsite").responseJSON(options: NSJSONReadingOptions.MutableContainers, completionHandler: {
+        //print("http://douban.fm/j/mine/playlist?channel=\(channel)")
+        //print("http://douban.fm/j/mine/playlist?type=n&channel=\(channel)&from=mainsite")
+        let url = "http://www.douban.com/j/app/radio/people?app_name=radio_desktop_win&version=100&type=n&channel=\(channel)"
+        println(url)
+        Alamofire.manager.request(Method.GET, url).responseJSON(options: NSJSONReadingOptions.MutableContainers, completionHandler: {
             (_, _, data, error) in
             if let data:AnyObject = data {
                 self.onSongResult(data)

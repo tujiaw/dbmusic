@@ -12,12 +12,14 @@ import MediaPlayer
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RoundRotateViewDelegate {
 
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var channelTableView: UITableView!
+    @IBOutlet weak var songTableView: UITableView!
     @IBOutlet weak var playView: RoundRotateView!
+    @IBOutlet weak var lyricView: LyricView!
     
     let songPlayer = MPMoviePlayerController()
     let refreshControl = UIRefreshControl()
     var oldChannel: Int = SongChannelModel.instance.currentChannel
+    var timer: NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +35,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         backgroundImage.addSubview(blurView)
         
         SongChannelModel.instance.requestSong(fromChannel: SongChannelModel.instance.currentChannel) {
-            self.channelTableView.reloadData()
+            self.songTableView.reloadData()
         }
         
         refreshControl.addTarget(self, action: "downDragRefresh", forControlEvents: .ValueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新")
-        channelTableView.addSubview(refreshControl)
+        songTableView.addSubview(refreshControl)
         
         // 监听播放结束
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onPlayFinished", name: MPMoviePlayerPlaybackDidFinishNotification, object: songPlayer)
@@ -47,8 +49,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidAppear(animated: Bool) {
         if oldChannel != SongChannelModel.instance.currentChannel {
             oldChannel = SongChannelModel.instance.currentChannel
-            SongChannelModel.instance.requestSong(fromChannel: SongChannelModel.instance.currentChannel) {
-                self.channelTableView.reloadData()
+            SongChannelModel.instance.requestSongCurrentChannel() {
+                print(SongChannelModel.instance.songData.count)
+                self.songTableView.reloadData()
             }
         }
     }
@@ -86,27 +89,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func downDragRefresh() {
         SongChannelModel.instance.requestSongCurrentChannel() {
-            self.channelTableView.reloadData()
+            self.songTableView.reloadData()
             self.refreshControl.endRefreshing()
         }
     }
     
     func playStateChanged(isPlay: Bool) {
-        let indexPath = self.channelTableView.indexPathForSelectedRow()
+        let indexPath = self.songTableView.indexPathForSelectedRow()
         if let indexPath = indexPath {
             if isPlay {
                 let url = SongChannelModel.instance.songData[indexPath.row]["url"].string
                 if let url = url {
                     self.songPlayer.contentURL = NSURL(string: url)
                     self.songPlayer.play()
+                    let title = SongChannelModel.instance.songData[indexPath.row]["title"].string
+                    let artist = SongChannelModel.instance.songData[indexPath.row]["artist"].string
+                    LyricManager.instance.cacheLyc(title!, artist: artist!)
+                    timer = NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: "onTimer", userInfo: nil, repeats: true)
                     return
                 }
             }
         }
+        timer?.invalidate()
         self.songPlayer.pause()
     }
     
     func onPlayFinished() {
+
+    }
+    
+    func onTimer() {
+        if self.songPlayer.duration >= 0 && self.songPlayer.currentPlaybackTime >= 0 {
+            self.lyricView.totalTime.totalSecond = Int(self.songPlayer.duration)
+            self.lyricView.currentTime.totalSecond = Int(self.songPlayer.currentPlaybackTime)
+        }
 
     }
     

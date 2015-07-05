@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" red="0.2156862745" green="0.50196078430000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-EB-L0g">
-                                <rect key="frame" x="16" y="257" width="288" height="254"/>
+                                <rect key="frame" x="16" y="271" width="288" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="channels" textLabel="RcC-tP-Rsa" detailTextLabel="ABc-1R-RhS" style="IBUITableViewCellStyleSubtitle" id="Jp0-d0-2EQ">
@@ -59,21 +59,31 @@
                                     <constraint firstAttribute="height" constant="160" id="zOl-11-LiD"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMU-vO-6oX" customClass="LyricView" customModule="dbmusic" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="237" width="320" height="26"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="gCG-HX-zFE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xMU-vO-6oX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="3O9-RR-MWC"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="6" id="5Vz-XS-ek7"/>
+                            <constraint firstItem="xMU-vO-6oX" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="7" id="Ent-BA-1AQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xMU-vO-6oX" secondAttribute="trailing" constant="-16" id="Ka2-TR-gvj"/>
                             <constraint firstItem="Wgh-EB-L0g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tce-nf-rzv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="daF-gh-HhJ" secondAttribute="trailing" constant="-16" id="U89-uU-aWT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="daF-gh-HhJ" secondAttribute="bottom" id="X4G-3H-Sh0"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="bo8-eW-uwx"/>
-                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="27" id="eDt-xN-EtH"/>
+                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="41" id="eDt-xN-EtH"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Wgh-EB-L0g" secondAttribute="bottom" constant="8" id="gBg-lD-7GN"/>
                             <constraint firstItem="daF-gh-HhJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ju2-UQ-CmW"/>
                             <constraint firstItem="daF-gh-HhJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="pUe-b0-9N2"/>
                             <constraint firstItem="Wgh-EB-L0g" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="qsL-MB-wwI"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="289" id="sB0-UE-0Lg"/>
-                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="193" id="usO-PK-XYv"/>
+                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="207" id="usO-PK-XYv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J08-dh-ViB" secondAttribute="trailing" constant="64" id="xuC-PF-4lh"/>
                         </constraints>
                     </view>
@@ -81,8 +91,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="backgroundImage" destination="daF-gh-HhJ" id="FDA-nV-gG8"/>
-                        <outlet property="channelTableView" destination="Wgh-EB-L0g" id="sX9-yI-Fq9"/>
+                        <outlet property="lyricView" destination="xMU-vO-6oX" id="rKY-pe-6mu"/>
                         <outlet property="playView" destination="J08-dh-ViB" id="4y4-Ee-Qke"/>
+                        <outlet property="songTableView" destination="Wgh-EB-L0g" id="Ryl-9N-RRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -165,7 +176,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRx-6J-gm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1484" y="-503"/>
+            <point key="canvasLocation" x="-1562" y="-462"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cgb-Ny-6iX">
