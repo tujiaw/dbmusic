@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" red="0.2156862745" green="0.50196078430000002" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-EB-L0g">
-                                <rect key="frame" x="16" y="271" width="288" height="240"/>
+                                <rect key="frame" x="0.0" y="271" width="320" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="channels" textLabel="RcC-tP-Rsa" detailTextLabel="ABc-1R-RhS" style="IBUITableViewCellStyleSubtitle" id="Jp0-d0-2EQ">
@@ -73,7 +73,7 @@
                             <constraint firstItem="J08-dh-ViB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="6" id="5Vz-XS-ek7"/>
                             <constraint firstItem="xMU-vO-6oX" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="7" id="Ent-BA-1AQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xMU-vO-6oX" secondAttribute="trailing" constant="-16" id="Ka2-TR-gvj"/>
-                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tce-nf-rzv"/>
+                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Tce-nf-rzv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="daF-gh-HhJ" secondAttribute="trailing" constant="-16" id="U89-uU-aWT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="daF-gh-HhJ" secondAttribute="bottom" id="X4G-3H-Sh0"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="bo8-eW-uwx"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Wgh-EB-L0g" secondAttribute="bottom" constant="8" id="gBg-lD-7GN"/>
                             <constraint firstItem="daF-gh-HhJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ju2-UQ-CmW"/>
                             <constraint firstItem="daF-gh-HhJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="pUe-b0-9N2"/>
-                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="qsL-MB-wwI"/>
+                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="16" id="qsL-MB-wwI"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="289" id="sB0-UE-0Lg"/>
                             <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="207" id="usO-PK-XYv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J08-dh-ViB" secondAttribute="trailing" constant="64" id="xuC-PF-4lh"/>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1025" y="-1102"/>
+            <point key="canvasLocation" x="-1484" y="-1182"/>
         </scene>
         <!--Channel List View Controller-->
         <scene sceneID="UNL-s4-p9K">
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnm-I6-Bf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1054" y="-484"/>
+            <point key="canvasLocation" x="-1009" y="-789"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0VG-9f-u2i">
@@ -195,7 +195,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAA-4t-dOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1389" y="-1102"/>
+            <point key="canvasLocation" x="-1652" y="-1134"/>
         </scene>
     </scenes>
 </document>
