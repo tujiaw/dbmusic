@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D7621671B508EFB00D13F28 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7621661B508EFB00D13F28 /* SongTableViewCell.swift */; };
+		9D76216A1B50C7FB00D13F28 /* LoveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7621691B50C7FB00D13F28 /* LoveListViewController.swift */; };
 		9D8450FE1B46B634004F0435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8450FD1B46B634004F0435 /* AppDelegate.swift */; };
 		9D8451001B46B634004F0435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8450FF1B46B634004F0435 /* ViewController.swift */; };
 		9D8451031B46B634004F0435 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8451011B46B634004F0435 /* Main.storyboard */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D7621661B508EFB00D13F28 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		9D7621681B50B64E00D13F28 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		9D7621691B50C7FB00D13F28 /* LoveListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveListViewController.swift; sourceTree = "<group>"; };
 		9D8450F81B46B634004F0435 /* dbmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dbmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8450FC1B46B634004F0435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8450FD1B46B634004F0435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 				9DB2F0151B48CCB5001A59B5 /* view */,
 				9DB2F0141B48CC55001A59B5 /* model */,
 				9D8450FD1B46B634004F0435 /* AppDelegate.swift */,
+				9D7621681B50B64E00D13F28 /* MyPlayground.playground */,
 				9D8451011B46B634004F0435 /* Main.storyboard */,
 				9D8451041B46B634004F0435 /* Images.xcassets */,
 				9D8451061B46B634004F0435 /* LaunchScreen.xib */,
@@ -146,6 +152,7 @@
 				9DB2F0481B48F48F001A59B5 /* LyricView.swift */,
 				9D8451531B47F202004F0435 /* RoundRotateView.swift */,
 				9D84511E1B46CE03004F0435 /* HRToast+UIView.swift */,
+				9D7621661B508EFB00D13F28 /* SongTableViewCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 			children = (
 				9D8451551B481D4A004F0435 /* ChannelListViewController.swift */,
 				9D8450FF1B46B634004F0435 /* ViewController.swift */,
+				9D7621691B50C7FB00D13F28 /* LoveListViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -268,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D76216A1B50C7FB00D13F28 /* LoveListViewController.swift in Sources */,
 				9DB2F0491B48F48F001A59B5 /* LyricView.swift in Sources */,
 				9D8451541B47F202004F0435 /* RoundRotateView.swift in Sources */,
 				9D8451211B46CE03004F0435 /* HRToast+UIView.swift in Sources */,
+				9D7621671B508EFB00D13F28 /* SongTableViewCell.swift in Sources */,
 				9D8451581B481FC9004F0435 /* SongChannelModel.swift in Sources */,
 				9D8451561B481D4A004F0435 /* ChannelListViewController.swift in Sources */,
 				9D8451201B46CE03004F0435 /* Alamofire.swift in Sources */,

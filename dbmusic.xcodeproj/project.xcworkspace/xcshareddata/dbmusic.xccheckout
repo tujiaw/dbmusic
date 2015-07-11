@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>ED838542-C732-4E7C-84EA-CFD6F4285D37</string>
 	<key>IDESourceControlProjectName</key>
-	<string>dbmusic</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3347FEF6E7E99F48F41A62254425793FE49D792E</key>
 		<string>https://github.com/tujiaw/dbmusic.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>dbmusic.xcodeproj</string>
+	<string>dbmusic.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3347FEF6E7E99F48F41A62254425793FE49D792E</key>

@@ -9,7 +9,8 @@
 import UIKit
 import MediaPlayer
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RoundRotateViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
+        RoundRotateViewDelegate {
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var songTableView: UITableView!
@@ -66,13 +67,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("channels") as? UITableViewCell
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.textLabel?.text = SongChannelModel.instance.songData[indexPath.row]["title"].string
-        cell?.detailTextLabel?.text = SongChannelModel.instance.songData[indexPath.row]["artist"].string
+        var cell = tableView.dequeueReusableCellWithIdentifier(SongTableViewCell.id) as? SongTableViewCell
+        if cell == nil {
+            cell = SongTableViewCell(style: .Subtitle, reuseIdentifier: SongTableViewCell.id)
+        }
         SongChannelModel.instance.getImage(indexPath.row, resultHandle: {
-            (image) -> Void in cell?.imageView?.image = image
+            (image) ->Void in cell?.imageView?.image = image
         })
+        cell?.titleLabel?.text = SongChannelModel.instance.songData[indexPath.row]["title"].string
+        cell?.contentLabel?.text = SongChannelModel.instance.songData[indexPath.row]["artist"].string
+        cell?.indexPath = indexPath
         return cell!
     }
     
@@ -115,7 +119,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func onPlayFinished() {
-
+        self.playStateChanged(false)
     }
     
     func onTimer() {
@@ -123,9 +127,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.lyricView.totalTime.totalSecond = Int(self.songPlayer.duration)
             self.lyricView.currentTime.totalSecond = Int(self.songPlayer.currentPlaybackTime)
         }
-
     }
-    
     //////////////////////////////////////////////////////////
 }
 
