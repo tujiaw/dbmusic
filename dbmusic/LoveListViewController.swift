@@ -9,10 +9,8 @@
 import UIKit
 
 class LoveListViewController: UIViewController {
-
-    let cellId = "loveSongCell"
-    var loveDic: [String: AnyObject]?
     
+    let cellId = "loveSongCell"
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -27,25 +25,28 @@ class LoveListViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        let userData = NSUserDefaults.standardUserDefaults()
-        let data = userData.persistentDomainForName("loveSongList")
-        loveDic = data as? [String: AnyObject]
         tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let dic = loveDic {
-            println(dic.count)
-            return dic.count
-        }
-        return 0
+        return LoveSongModel.count()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(cellId) as? UITableViewCell
-        var json = JSON((loveDic?.values.array[indexPath.row])!)
-        cell?.textLabel?.text = json["title"].string
+        cell?.textLabel?.text = LoveSongModel.getObject(indexPath.row, key: "title")
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+       if editingStyle == UITableViewCellEditingStyle.Delete {
+        LoveSongModel.remove(LoveSongModel.getObject(indexPath.row, key: "ssid")!)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

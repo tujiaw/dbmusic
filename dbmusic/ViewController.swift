@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.songTableView.reloadData()
             }
         }
+        self.songTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,12 +72,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if cell == nil {
             cell = SongTableViewCell(style: .Subtitle, reuseIdentifier: SongTableViewCell.id)
         }
+        cell?.indexPath = indexPath
         SongChannelModel.instance.getImage(indexPath.row, resultHandle: {
             (image) ->Void in cell?.imageView?.image = image
         })
         cell?.titleLabel?.text = SongChannelModel.instance.songData[indexPath.row]["title"].string
         cell?.contentLabel?.text = SongChannelModel.instance.songData[indexPath.row]["artist"].string
-        cell?.indexPath = indexPath
+        if LoveSongModel.exist(SongChannelModel.instance.songData[indexPath.row]["ssid"].string!) {
+            cell?.loveButton?.setTitle("", forState: .Normal)
+        } else {
+            cell?.loveButton?.setTitle("❤️", forState: .Normal)
+        }
         return cell!
     }
     

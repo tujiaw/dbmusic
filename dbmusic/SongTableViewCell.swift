@@ -49,7 +49,6 @@ class SongTableViewCell: UITableViewCell {
         titleLabel = UILabel(frame: titleRect)
         contentLabel = UILabel(frame: contentRect)
         loveButton = UIButton(frame: loveRect)
-        loveButton?.setTitle("❤️", forState: .Normal)
         
         titleLabel?.font = UIFont(name: "Helvetica", size: 14)
         contentLabel?.font = UIFont(name: "Helvetica", size: 11)
@@ -70,14 +69,8 @@ class SongTableViewCell: UITableViewCell {
         if let row = self.indexPath?.row {
             var ssid = SongChannelModel.instance.songData[row]["ssid"].string
             if let ssid = ssid {
-                let userData = NSUserDefaults.standardUserDefaults()
-                var loveList = userData.persistentDomainForName("loveSongList")
-                if loveList == nil {
-                    loveList = [ssid: SongChannelModel.instance.songData[row].object]
-                } else {
-                    loveList?.updateValue(SongChannelModel.instance.songData[row].object, forKey: ssid)
-                }
-                userData.setPersistentDomain(loveList!, forName: "loveSongList")
+                LoveSongModel.updateValue(SongChannelModel.instance.songData[row].object, fromKey: ssid)
+                loveButton?.setTitle("", forState: .Normal)
             }
         }
     }

@@ -21,6 +21,7 @@
 		9D8451541B47F202004F0435 /* RoundRotateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451531B47F202004F0435 /* RoundRotateView.swift */; };
 		9D8451561B481D4A004F0435 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451551B481D4A004F0435 /* ChannelListViewController.swift */; };
 		9D8451581B481FC9004F0435 /* SongChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8451571B481FC9004F0435 /* SongChannelModel.swift */; };
+		9DB103FE1B51285800C87A9F /* LoveSongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB103FD1B51285800C87A9F /* LoveSongModel.swift */; };
 		9DB2F0131B48CC33001A59B5 /* LyricModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F0121B48CC32001A59B5 /* LyricModel.swift */; };
 		9DB2F0491B48F48F001A59B5 /* LyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2F0481B48F48F001A59B5 /* LyricView.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		9D8451531B47F202004F0435 /* RoundRotateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundRotateView.swift; sourceTree = "<group>"; };
 		9D8451551B481D4A004F0435 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
 		9D8451571B481FC9004F0435 /* SongChannelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongChannelModel.swift; sourceTree = "<group>"; };
+		9DB103FD1B51285800C87A9F /* LoveSongModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoveSongModel.swift; sourceTree = "<group>"; };
 		9DB2F0121B48CC32001A59B5 /* LyricModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricModel.swift; sourceTree = "<group>"; };
 		9DB2F0481B48F48F001A59B5 /* LyricView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LyricView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 			children = (
 				9D8451571B481FC9004F0435 /* SongChannelModel.swift */,
 				9DB2F0121B48CC32001A59B5 /* LyricModel.swift */,
+				9DB103FD1B51285800C87A9F /* LoveSongModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				9D8451201B46CE03004F0435 /* Alamofire.swift in Sources */,
 				9D8451001B46B634004F0435 /* ViewController.swift in Sources */,
 				9D8451221B46CE03004F0435 /* SwiftyJSON.swift in Sources */,
+				9DB103FE1B51285800C87A9F /* LoveSongModel.swift in Sources */,
 				9D8450FE1B46B634004F0435 /* AppDelegate.swift in Sources */,
 				9DB2F0131B48CC33001A59B5 /* LyricModel.swift in Sources */,
 			);
