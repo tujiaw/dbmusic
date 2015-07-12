@@ -42,7 +42,7 @@ class SongTableViewCell: UITableViewCell {
         var rect = self.frame
         var headRect = CGRect(x: 0, y: 0, width: rect.height, height: rect.height)
         var loveRect = CGRect(x: rect.width - rect.height - 5, y: 0, width: rect.height, height: rect.height)
-        var titleRect = CGRect(x: headRect.width + 20, y: 0, width: 200, height: rect.height / 2)
+        var titleRect = CGRect(x: headRect.width + 20, y: 5, width: 200, height: rect.height / 2)
         var contentRect = CGRect(x: headRect.width + 20, y: titleRect.height, width: 200, height: rect.height / 2)
         
         headView = UIImageView(frame: headRect)

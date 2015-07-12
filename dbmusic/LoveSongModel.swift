@@ -35,7 +35,7 @@ class LoveSongModel: NSObject {
         userData.setPersistentDomain(loveList!, forName: loveSongList)
     }
     
-    class func getObject(key: String) -> AnyObject? {
+    class func getObject(fromKey key: String) -> AnyObject? {
         let userData = NSUserDefaults.standardUserDefaults()
         var loveList = userData.persistentDomainForName(loveSongList)
         if loveList?.indexForKey(key) != nil {
@@ -45,10 +45,14 @@ class LoveSongModel: NSObject {
         return nil
     }
     
-    class func getObject(row: Int, key: String) -> String? {
+    class func getObject(fromRow row: Int) -> AnyObject? {
         let userData = NSUserDefaults.standardUserDefaults()
         var loveList = userData.persistentDomainForName(loveSongList)
-        var anyObject: AnyObject? = loveList?.values.array[row]
+        return loveList?.values.array[row]
+    }
+    
+    class func getValue(row: Int, key: String) -> String? {
+        var anyObject: AnyObject? = getObject(fromRow: row)
         if let anyObject: AnyObject = anyObject {
             var json = JSON(anyObject)
             return json[key].string

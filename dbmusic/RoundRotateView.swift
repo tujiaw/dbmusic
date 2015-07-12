@@ -32,13 +32,6 @@ class RoundRotateView: UIView {
                 stopRotation()
             }
         }
-//        didSet {
-//            if self.isPlay {
-//                startRotation()
-//            } else {
-//                stopRotation()
-//            }
-//        }
     }
     
     var roundImage: UIImage! {
@@ -90,7 +83,7 @@ class RoundRotateView: UIView {
         self.delegate?.playStateChanged(self.isPlay)
     }
     
-    func rotation() {
+    private func rotation() {
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveLinear, animations: {
             self.roundImageView.transform = CGAffineTransformRotate(self.roundImageView.transform, CGFloat(M_PI/20))
             }, completion: {
@@ -101,13 +94,12 @@ class RoundRotateView: UIView {
         })
     }
     
-    func startRotation() {
+    private func startRotation() {
         self.playStateButton.setImage(UIImage(named: "pause"), forState: UIControlState.Normal)
         rotation()
     }
     
-    func stopRotation() {
+    private func stopRotation() {
         self.playStateButton.setImage(UIImage(named: "start"), forState: UIControlState.Normal)
-        //self.userInteractionEnabled = false
     }
 }

@@ -84,4 +84,22 @@ class SongChannelModel: NSObject {
         }
     }
     
+    func appendSongIfNotExist(data: AnyObject) {
+        var found = false
+        var json = JSON(data)
+        if let ssid = json["ssid"].string {
+            for song in self.songData {
+                if let curSsid = song["ssid"].string {
+                    if curSsid == ssid {
+                        found = true
+                        break
+                    }
+                }
+            }
+        }
+        if (!found) {
+            self.songData.append(JSON(data))
+        }
+    }
+    
 }

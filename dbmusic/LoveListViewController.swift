@@ -34,7 +34,7 @@ class LoveListViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier(cellId) as? UITableViewCell
-        cell?.textLabel?.text = LoveSongModel.getObject(indexPath.row, key: "title")
+        cell?.textLabel?.text = LoveSongModel.getValue(indexPath.row, key: "title")
         return cell!
     }
     
@@ -44,12 +44,17 @@ class LoveListViewController: UIViewController {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
        if editingStyle == UITableViewCellEditingStyle.Delete {
-        LoveSongModel.remove(LoveSongModel.getObject(indexPath.row, key: "ssid")!)
+        LoveSongModel.remove(LoveSongModel.getValue(indexPath.row, key: "ssid")!)
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let anyObject: AnyObject? = LoveSongModel.getObject(fromRow: indexPath.row)
+        if let anyObject: AnyObject = anyObject {
+            SongChannelModel.instance.appendSongIfNotExist(anyObject)
+        }
+        self.tabBarController?.selectedIndex = 0
     }
 
 }
