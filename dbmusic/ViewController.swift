@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let songPlayer = MPMoviePlayerController()
     let refreshControl = UIRefreshControl()
     var oldChannel: Int = SongChannelModel.instance.currentChannel
+    var currentIndexPath: NSIndexPath?
     var timer: NSTimer?
     
     override func viewDidLoad() {
@@ -87,14 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        SongChannelModel.instance.getImage(indexPath.row, resultHandle: {
-            (image) -> Void in
-            self.backgroundImage.image = image
-            self.playView.roundImage = image
-        })
-        self.navigationItem.title = SongChannelModel.instance.songData[indexPath.row]["title"].string
-        self.playView.isPlay = true
-        playStateChanged(self.playView.isPlay)
+        playMusic(indexPath.row)
     }
     
     func downDragRefresh() {
@@ -104,9 +98,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func playMusic(row: Int) {
+        SongChannelModel.instance.getImage(row, resultHandle: {
+            (image) -> Void in
+            self.backgroundImage.image = image
+            self.playView.roundImage = image
+        })
+        self.navigationItem.title = SongChannelModel.instance.songData[row]["title"].string
+        self.playView.isPlay = true
+        playStateChanged(self.playView.isPlay)
+    }
+    
     func playStateChanged(isPlay: Bool) {
-        let indexPath = self.songTableView.indexPathForSelectedRow()
-        if let indexPath = indexPath {
+        currentIndexPath = self.songTableView.indexPathForSelectedRow()
+        if let indexPath = currentIndexPath {
             if isPlay {
                 let url = SongChannelModel.instance.songData[indexPath.row]["url"].string
                 if let url = url {
@@ -125,13 +130,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func onPlayFinished() {
-        self.playStateChanged(false)
+        if let indexPath = currentIndexPath {
+            var row = indexPath.row + 1
+            if row >= SongChannelModel.instance.songData.count {
+                row = 0
+            }
+            self.songTableView.selectRowAtIndexPath(NSIndexPath(forRow: row, inSection: currentIndexPath!.section), animated: true, scrollPosition: .Top)
+            playMusic(row)
+        }
     }
     
     func onTimer() {
         if self.songPlayer.duration >= 0 && self.songPlayer.currentPlaybackTime >= 0 {
-            self.lyricView.totalTime.totalSecond = Int(self.songPlayer.duration)
-            self.lyricView.currentTime.totalSecond = Int(self.songPlayer.currentPlaybackTime)
+            let currentTime = LyricTime(second: Int(self.songPlayer.currentPlaybackTime))
+            let totalTime = LyricTime(second: Int(self.songPlayer.duration))
+            self.lyricView.setProgress(currentTime, totalTime: totalTime)
         }
     }
     //////////////////////////////////////////////////////////

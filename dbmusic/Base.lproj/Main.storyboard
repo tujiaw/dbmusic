@@ -37,10 +37,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-EB-L0g">
-                                <rect key="frame" x="0.0" y="271" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="262" width="320" height="249"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="rcW-h1-rdn"/>
+                                    <constraint firstAttribute="height" constant="249" id="rcW-h1-rdn"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="dVu-J0-NhM"/>
@@ -56,7 +56,7 @@
                             <constraint firstItem="J08-dh-ViB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="6" id="46P-CR-T8K"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="6" id="5Vz-XS-ek7"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="5aT-Ak-TLf"/>
-                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="xMU-vO-6oX" secondAttribute="bottom" constant="8" symbolic="YES" id="5lQ-gH-BMh"/>
+                            <constraint firstItem="Wgh-EB-L0g" firstAttribute="top" secondItem="xMU-vO-6oX" secondAttribute="bottom" constant="-1" id="5lQ-gH-BMh"/>
                             <constraint firstItem="xMU-vO-6oX" firstAttribute="top" secondItem="J08-dh-ViB" secondAttribute="bottom" constant="7" id="Ent-BA-1AQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xMU-vO-6oX" secondAttribute="trailing" constant="-16" id="Ka2-TR-gvj"/>
                             <constraint firstItem="J08-dh-ViB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="64" id="MjT-P4-Re9"/>

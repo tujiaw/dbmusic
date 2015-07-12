@@ -19,7 +19,8 @@ struct LyricTime {
     
     var totalSecond: Int = 0
     
-    init() {
+    init(second: Int) {
+        self.totalSecond = second
     }
     
     var str: String {
@@ -32,20 +33,20 @@ class LyricView: UIView {
     var label: UILabel?
     var backgroundLabel: UILabel?
     
-    var totalTime = LyricTime()
-    var currentTime = LyricTime() {
-        didSet {
-            if self.currentTime.totalSecond < self.totalTime.totalSecond {
-                self.label?.frame.size.width = self.frame.width * (CGFloat(currentTime.totalSecond) / CGFloat(totalTime.totalSecond))
-                var content = LyricManager.instance.current?.getContent(minute: currentTime.minute, second: currentTime.second)
-                if let content = content {
-                    self.backgroundLabel!.text = content
-                }
-            } else {
-                self.backgroundLabel?.text = ""
-            }
-        }
-    }
+//    var totalTime = LyricTime()
+//    var currentTime = LyricTime() {
+//        didSet {
+//            if self.currentTime.totalSecond < self.totalTime.totalSecond {
+//                self.label?.frame.size.width = self.frame.width * (CGFloat(currentTime.totalSecond) / CGFloat(totalTime.totalSecond))
+//                var content = LyricManager.instance.current?.getContent(minute: currentTime.minute, second: currentTime.second)
+//                if let content = content {
+//                    self.backgroundLabel!.text = content
+//                }
+//            } else {
+//                self.backgroundLabel?.text = ""
+//            }
+//        }
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,5 +69,17 @@ class LyricView: UIView {
         
         self.addSubview(self.label!)
         self.addSubview(self.backgroundLabel!)
+    }
+    
+    func setProgress(currentTime: LyricTime, totalTime: LyricTime) {
+        if currentTime.totalSecond < totalTime.totalSecond {
+            self.label?.frame.size.width = self.frame.width * (CGFloat(currentTime.totalSecond) / CGFloat(totalTime.totalSecond))
+            var content = LyricManager.instance.current?.getContent(minute: currentTime.minute, second: currentTime.second)
+            if let content = content {
+                self.backgroundLabel?.text = content
+            }
+        } else {
+            self.backgroundLabel?.text = ""
+        }
     }
 }
